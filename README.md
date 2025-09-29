@@ -9,11 +9,41 @@ facial-recognition-system/
 ├── app.py                 # Main Streamlit application
 ├── face_capture.py        # Script for capturing face images
 ├── face_model.h5          # Trained model (generated after training)
-└── dataset/               # Directory containing training images
+└── dataset/               # Directory containing training images (optional - can use provided dataset)
     ├── Person1/
     ├── Person2/
     ├── ...
     └── Unknown/
+```
+
+## Quick Start
+
+### Option 1: Use Provided Dataset
+Download the pre-prepared dataset from GitHub Releases:
+
+```bash
+# Download and extract the dataset
+wget https://github.com/Omotayo-Emmanuel/Facial_recognition/releases/download/v0.1/data.zip
+unzip data.zip -d dataset/
+```
+
+### Option 2: Use Your Own Dataset
+Create your own folder structure for training images:
+
+```
+dataset/
+├── Person1/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+├── Person2/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+└── Unknown/
+    ├── object1.jpg
+    ├── non-face1.jpg
+    └── ...
 ```
 
 ## Features
@@ -38,25 +68,11 @@ pip install streamlit tensorflow opencv-python scikit-learn matplotlib numpy
 
 ### 1. Preparing Your Dataset
 
-Create a folder structure for your training images:
+You can either:
+- Use the provided dataset (download from GitHub Releases)
+- Create your own dataset with the structure shown above
 
-```
-dataset/
-├── Person1/
-│   ├── image1.jpg
-│   ├── image2.jpg
-│   └── ...
-├── Person2/
-│   ├── image1.jpg
-│   ├── image2.jpg
-│   └── ...
-└── Unknown/
-    ├── object1.jpg
-    ├── non-face1.jpg
-    └── ...
-```
-
-### 2. Capturing Training Images
+### 2. Capturing Training Images (Optional)
 
 Use the face capture utility to easily create training images:
 
@@ -127,7 +143,9 @@ The system uses an adjustable confidence threshold (default: 0.7) to:
 
 ### Common Issues
 
-1. **"dataset folder not found"**: Create a dataset folder with subfolders for each person
+1. **"dataset folder not found"**: 
+   - Download the dataset from GitHub Releases using the link above, or
+   - Create a dataset folder with subfolders for each person
 2. **Webcam not working**: Check CAM_INDEX in face_capture.py (try 0, 1, 2)
 3. **Low accuracy**: 
    - Add more training images
@@ -146,6 +164,12 @@ The system uses an adjustable confidence threshold (default: 0.7) to:
 - **app.py**: Main application with training and inference capabilities
 - **face_capture.py**: Utility for capturing training images via webcam
 - **face_model.h5**: Saved model file (created after training)
+- **data.zip**: Pre-prepared dataset available in GitHub Releases
+
+## Dataset Download
+
+The dataset is available for download from GitHub Releases:
+[dataset](https://github.com/Omotayo-Emmanuel/Facial_recognition/releases/download/v0.1/data.zip)
 
 ## Future Enhancements
 
